@@ -1,0 +1,11 @@
+:root {
+    --primary: #008DD9;
+    --navbar-tx-color: #5F5E5E;
+    --bg-navbar: #ffff;
+    --radius: 20px;
+    --tx-color-1: #EBEBEB;
+    --tx-color-2: #CBCBCB;
+    --navbar-tx-size: 20px;
+    --img-fill: linear-gradient(#fff, #000);
+    --card-fill: linear-gradient(#fff, rgba(0, 0, 0, 0.2));
+}
