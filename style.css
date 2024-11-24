@@ -26,13 +26,14 @@
     --color-2: #CBCBCB;
 
 
-    --card-fill: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+    --card-fill: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
 
 *, html {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    scrollbar-width: none;
 }
 
 @font-face {
@@ -43,6 +44,7 @@
 body {
     font-family: poppins;
     background-color: var(--color-1);
+    height: 100vh;
 }
 
 main {
@@ -67,13 +69,18 @@ nav {
 
 nav ul {
     display: flex;
-    justify-content: center;
     align-items: center;
     list-style-type: none;
     gap: 1rem;
     font-size: var(--navbar-tx-size);
     color: var(--navbar-tx-color);
     transition: all .5s ease;
+    width: 700px;
+    overflow-x: scroll;
+}
+
+nav ul li {
+    min-width: max-content;
 }
 
 nav ul li:hover, nav i:hover {
@@ -82,133 +89,95 @@ nav ul li:hover, nav i:hover {
 }
 
 /* header */
-header {
+main header {
     width: 100%;
-    background-image: url("https://cdn1-production-images-kly.akamaized.net/ZtbieSf_tfohEajyjflP7DnFf8k=/640x360/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4893163/original/083011800_1721126896-FB_IMG_1675646868415.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 90vh;
-    position: relative;
-}
-
-header::before {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background-image: var(--img-fill);
-    position: absolute;
-}
-
-header .info {
-    position: absolute;
-    bottom: 1rem;
-    padding: 1rem;
-    font-weight: bolder;
     display: flex;
-    flex-direction: column;
-    gap: .8rem;
-    color: var(--color-1);
-}
-
-header a {
-    margin-left: 10px;
-}
-
-header a:hover, .mini-headline .info h2 a:hover {
-    text-decoration: underline;
-}
-
-header p, header a {
-    font-size: var(--size-6);
-    color: var(--color-2);
-    text-decoration: none;
-}
-
-main {
-    padding-bottom: 200px;
-}
-
-/* mini-headline-card */
-main .mini-headline-card {
-    display: flex;
-    padding: 1rem .8rem;
+    padding: 1.5rem;
     gap: 1.5rem;
-}
+} 
 
-main .mini-headline-card .topik-populer {
+main .mini-headline {
     display: flex;
     flex-direction: column;
-    gap: .8rem;
+    gap: 1rem;
+    width: 70%;
 }
 
-main .mini-headline-card .topik-populer h4 {
-    color: var(--primary);
-    font-size: var(--size-5);
+main header .mini-headline img {
+    border-radius: var(--radius);
 }
 
-main .mini-headline-card .topik-populer ul {
+main header .mini-headline .info {
     display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+main header .topik-populer {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: .5rem;
+}
+
+main header .topik-populer h4 {
+    font-size: var(--size-6);
+    color: #333;
+}
+
+main header .topik-populer ul {
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
-    flex-direction: column;
-    gap: .8rem;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #333;
 }
 
-main .mini-headline-card .topik-populer ul li {
+main header .topik-populer ul li {
+    padding: .8rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+main header .topik-populer ul li:last-child {
+    border: none;
+}
+
+main header .topik-populer ul li span {
+    color: var(--primary);    
+}
+
+main header .topik-populer .jadwal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+main header .topik-populer .jadwal h4 {
+    color: #333;
     font-size: var(--size-6);
-    border-bottom: 1px solid var(--color-2);
-    padding-bottom: .5rem;
-    color: #444444;
-    font-weight: bolder;
 }
 
-main .mini-headline-card .topik-populer ul li span {
-    color: var(--primary);
-}
-
-
-/* mini-headline */
-main .mini-headline {
-    border-radius: 20px;
-    padding: 20px;
-    background-image: url('https://cdn1-production-images-kly.akamaized.net/0wWX6v2VrLm9X3XlZsKMsnvADNA=/640x360/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4166753/original/096704000_1663802133-Harga_Minyak_Dunia_2.jpg');
-    width: 60%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    height: 300px;
-}
-
-main .mini-headline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-radius: 20px;
+main header .topik-populer .jadwal table {
     width: 100%;
-    height: 100%;
-    background-image: var(--img-fill);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333;
 }
 
-main .mini-headline .info {
-    position: absolute;
-    bottom: 1rem;
-    color: var(--color-1);
+main header .topik-populer .jadwal table thead tr td {
+    justify-content: center;
+    padding: .5rem;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-main .mini-headline .info h2 {
-    font-size: var(--size-5);
-}
-
-main .mini-headline .info p, main .mini-headline .info h2 a {
-    font-size: 14px;
-    font-weight: bolder;
-    color: var(--color-2);
-    text-decoration: none;
+main header .topik-populer .jadwal table tbody tr td {
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* berita utama lainnya */
@@ -230,11 +199,9 @@ main .berita-utama .cards {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
     position: relative;
-    border-radius: 20px;
     padding: 1rem 0;
-    gap: 1rem;
+    width: 100%;
 }
 
 main .berita-utama .cards .caret {
@@ -243,7 +210,8 @@ main .berita-utama .cards .caret {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 .8rem;
+    z-index: 1;
 }
 
 main .berita-utama .cards .caret i:hover {
@@ -273,11 +241,14 @@ main .berita-utama .cards::before {
 }
 
 main .berita-utama .cards .card {
-    width: 30%;
+    min-width: 311px;
 }
 
 main .berita-utama .cards .card img {
     width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
     border-radius: 20px;
 }
 
@@ -286,4 +257,207 @@ main .berita-utama .cards .card .info p {
     color: #777;
     font-weight: bold;
     margin: .4rem 0;
+}
+
+main .berita-utama .cards .scroll-box {
+    display: flex;
+    align-items: center;
+    width: 95%;
+    position: relative;
+    overflow: hidden;
+}
+
+main .berita-utama .cards .scroll-box .scroll {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    transition: all .5s ease;
+    justify-content: center;
+}
+
+/* other */
+main .other {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    height: 600px;
+    overflow: scroll;
+}
+
+main .other .card {
+    display: flex;
+    padding: 1rem 0;
+    gap: 1rem;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+main .other .card:last-child {
+    border: none;
+}
+
+main .other .card img {
+    border-radius: 20px;
+}
+
+main .other .card .info {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+main .other .card .info h5 {
+    font-size: var(--size-5);
+}
+
+main .other .card .info p:nth-child(1) {
+    font-weight: bold;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+main .other .card .info p {
+    font-size: 14px;
+}
+
+main .other .card .info p > span {
+    font-weight: normal;
+    color: #444;
+}
+
+main footer {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.06);
+    padding: 2rem 2rem 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: #333;
+}
+
+main footer table {
+    width: 50%;
+}
+
+main footer table tbody tr td {
+    padding: .5rem;
+}
+
+main footer .icons {
+    display: flex;
+    justify-content: start;
+    padding: 0 .8rem;
+    font-size: var(--size-5);
+    align-items: center;
+    gap: 1rem;
+    width: 30%;
+}
+
+main footer p {
+    width: 100%;
+    padding: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: small;
+}
+
+main footer .info-card {
+    display: flex;
+    width: 100%;
+}
+
+main footer .info-card .info {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem;
+    color: #666;
+    flex-grow: 1;
+}
+
+main footer .info-card .info p {
+    border: none;
+    padding: 0;
+    font-size: 10px;
+    text-align: start;
+}
+
+.hover:hover {
+    color: var(--primary);
+    cursor: pointer;
+}
+
+.modal-container {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    height: 100vh;
+    overflow-y: auto;
+    display: none;
+}
+
+.modal-container .modal {
+    background-color: #ffff;
+    width: 70%;
+    margin: auto;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 2rem 2rem 2rem;
+}
+
+.modal-container .modal img {
+    border-radius: 20px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.modal-container .modal .author {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.modal-container .modal .author .info {
+    color: #444;
+}
+
+.modal-container .modal .author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.modal-container .modal header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--size-6);
+}
+
+.modal-container .modal h2 {
+    font-size: var(--size-2);
+    color: #444;
+}
+
+.modal-container .modal header p span {
+    color: var(--primary);
+    font-size: var(--size-6);
+}
+
+.modal-container .modal p {
+    font-size: var(--size-6);
+    color: #5F5E5E;
+}
+
+.modal-container .modal header span {
+    font-size: var(--size-4);
 }
