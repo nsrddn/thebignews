@@ -1,6 +1,6 @@
 fetch('data.json').then(res => res.json()).then(datas => {
     const berita = datas.berita;
-    const kategories = datas.kategori;
+    const kategories = datas.kategories;
 
     const navbarKategoriList = document.querySelector('nav ul');
     const miniHeadline = document.querySelector('main header .mini-headline');
@@ -25,7 +25,7 @@ fetch('data.json').then(res => res.json()).then(datas => {
     let translateX = 0;
     carets[0].addEventListener('click', () => {
         if (x != 0) {
-            translateX += 327;
+            translateX += 296;
             beritaCard.style.transform = `translateX(${translateX}px)`;
             x--;
         }
@@ -33,7 +33,7 @@ fetch('data.json').then(res => res.json()).then(datas => {
 
     carets[1].addEventListener('click', () => {
         if (x < berita.slice(1, berita.length / 2).length - 1) {
-            translateX -= 327;
+            translateX -= 296;
             beritaCard.style.transform = `translateX(${translateX}px)`;
             x++;
         }
@@ -63,10 +63,12 @@ fetch('data.json').then(res => res.json()).then(datas => {
 
     kategories.forEach((kategori, i) => {
         const el = document.createElement('li');
+        el.dataset.kategori = kategori;
         el.innerHTML = kategori.toUpperCase();
         navbarKategoriList.appendChild(el)
         if ((kategories.length - 6) < i) {
             const elTopik = document.createElement('li');
+            elTopik.dataset.kategori = kategori;
             elTopik.innerHTML = `<span>#</span> ${kategori.toUpperCase()}`;
             elTopik.classList.add('hover');
             topikUl.appendChild(elTopik);
@@ -74,9 +76,10 @@ fetch('data.json').then(res => res.json()).then(datas => {
     });
 
     document.addEventListener('click', function (e) {
+        let data, el;
         if (e.target.dataset.id) {
-            const data = berita.find(b => b.id === parseInt(e.target.dataset.id));
-            const el = `<div class="modal">
+            data = berita.find(b => b.id === parseInt(e.target.dataset.id));
+            el = `<div class="modal">
             <header>
                 <p>
                     Home <span>> ${data.kategori}</span>
@@ -98,6 +101,79 @@ fetch('data.json').then(res => res.json()).then(datas => {
         </div>`;
             modalContainer.innerHTML = el;
             modalContainer.style.display = 'block';
+            document.querySelector('.modal-container .modal header span.hover').addEventListener('click', () => { modalContainer.style.display = 'none' });
+        } else if (e.target.dataset.kategori) {
+            datas = berita.filter(b => b.kategori == e.target.dataset.kategori);
+            const other = document.createElement('div');
+            datas.forEach(data => {
+                const div = document.createElement('div');
+                div.classList.add('card');
+                div.innerHTML = `
+                <img width="280" src="${data.image}" alt="">
+                <div class="info">
+                    <p>${data.kategori.toUpperCase()} <span>${data.terbit}</span></p>
+                    <h5 data-id="${data.id}" class="hover">${data.judul}</h5>
+                    <p>${data.excerpt.length <= 154 ? data.excerpt : data.excerpt.substring(0, 149) + "....."}</p>
+                </div>`;
+                other.appendChild(div);
+            })
+            el = `<div class="modal">
+            <header>
+                <p>
+                    Home <span>> ${e.target.dataset.kategori}</span>
+                </p>
+                <span class="hover">X</span>
+            </header>
+            <div class="other">
+                ${other.innerHTML}
+            </div>
+        </div>`;
+            modalContainer.innerHTML = el;
+            modalContainer.style.display = 'block';
+            document.querySelector('.modal-container .modal header span.hover').addEventListener('click', () => { modalContainer.style.display = 'none' });
+        } else if (e.target.dataset.search) {
+
+            el = `<div class="modal">
+            <header>
+                <div class="search">
+                    <input type="search" placeholder="Judul berita yang anda inginkan?" />
+                </div>
+                <span class="hover">X</span>
+            </header>
+            <div class="other"></div>
+        </div>`;
+            modalContainer.innerHTML = el;
+            modalContainer.style.display = 'block';
+            const modalOther = document.querySelector('.modal-container .modal .other');
+            berita.forEach(data => {
+                modalOther.innerHTML += `<div class="card">
+                        <img width="280" src="${data.image}" alt="">
+                        <div class="info">
+                            <p>${data.kategori.toUpperCase()} <span>${data.terbit}</span></p>
+                            <h5 data-id="${data.id}" class="hover">${data.judul}</h5>
+                            <p>${data.excerpt.length <= 154 ? data.excerpt : data.excerpt.substring(0, 149) + "....."}</p>
+                        </div>
+                    </div>`
+            })
+            document.querySelector('.modal-container .modal header .search input').addEventListener('keyup', function () {
+                const pattern = new RegExp(`^${this.value}`, 'i');
+                const datas = berita.filter(b => b.judul.match(pattern))
+                if (datas.length > 0) {
+                    modalOther.innerHTML = '';
+                    datas.forEach(data => {
+                        modalOther.innerHTML += `<div class="card">
+                            <img width="280" src="${data.image}" alt="">
+                            <div class="info">
+                                <p>${data.kategori.toUpperCase()} <span>${data.terbit}</span></p>
+                                <h5 data-id="${data.id}" class="hover">${data.judul}</h5>
+                                <p>${data.excerpt.length <= 154 ? data.excerpt : data.excerpt.substring(0, 149) + "....."}</p>
+                            </div>
+                        </div>`
+                    })
+                } else {
+                    modalOther.innerHTML = '<p>Not Found</p>'
+                }
+            });
             document.querySelector('.modal-container .modal header span.hover').addEventListener('click', () => { modalContainer.style.display = 'none' });
         }
     })

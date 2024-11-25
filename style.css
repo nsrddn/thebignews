@@ -241,7 +241,7 @@ main .berita-utama .cards::before {
 }
 
 main .berita-utama .cards .card {
-    min-width: 311px;
+    min-width: 280px;
 }
 
 main .berita-utama .cards .card img {
@@ -276,7 +276,7 @@ main .berita-utama .cards .scroll-box .scroll {
 }
 
 /* other */
-main .other {
+.other {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -286,7 +286,7 @@ main .other {
     overflow: scroll;
 }
 
-main .other .card {
+.other .card {
     display: flex;
     padding: 1rem 0;
     gap: 1rem;
@@ -294,25 +294,25 @@ main .other .card {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-main .other .card:last-child {
+.other .card:last-child {
     border: none;
 }
 
-main .other .card img {
+.other .card img {
     border-radius: 20px;
 }
 
-main .other .card .info {
+.other .card .info {
     display: flex;
     flex-direction: column;
     gap: .4rem;
 }
 
-main .other .card .info h5 {
+.other .card .info h5 {
     font-size: var(--size-5);
 }
 
-main .other .card .info p:nth-child(1) {
+.other .card .info p:nth-child(1) {
     font-weight: bold;
     color: var(--primary);
     display: flex;
@@ -320,11 +320,11 @@ main .other .card .info p:nth-child(1) {
     gap: 1rem;
 }
 
-main .other .card .info p {
+.other .card .info p {
     font-size: 14px;
 }
 
-main .other .card .info p > span {
+.other .card .info p > span {
     font-weight: normal;
     color: #444;
 }
@@ -458,6 +458,28 @@ main footer .info-card .info p {
     color: #5F5E5E;
 }
 
-.modal-container .modal header span {
+.modal-container .modal header > span {
     font-size: var(--size-4);
+    padding: 0 1rem;
+}
+
+.modal-container .modal .other .card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.modal-container .modal header .search {
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.modal-container .modal header .search input {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    color: #444;
+    height: 50px;
+    font-size: var(--size-6);
+    padding: 0 1rem;
+    outline: none;
 }
