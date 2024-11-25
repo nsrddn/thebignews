@@ -156,7 +156,7 @@ fetch('data.json').then(res => res.json()).then(datas => {
                     </div>`
             })
             document.querySelector('.modal-container .modal header .search input').addEventListener('keyup', function () {
-                const pattern = new RegExp(`^${this.value}`, 'i');
+                const pattern = new RegExp(`${this.value}`, 'gi');
                 const datas = berita.filter(b => b.judul.match(pattern))
                 if (datas.length > 0) {
                     modalOther.innerHTML = '';
