@@ -9,6 +9,9 @@ fetch('data.json').then(res => res.json()).then(datas => {
     const topikUl = document.querySelector('main .topik-populer ul');
     const other = document.querySelector('main .other');
     const modalContainer = document.querySelector('.modal-container');
+    const aside = document.querySelector('main aside');
+    const bars = document.querySelector('main nav div');
+    const asideUl = document.querySelector('main aside ul');
 
     miniHeadline.innerHTML = `
         <img src="${berita[0].image}" alt="Error"/>
@@ -62,10 +65,9 @@ fetch('data.json').then(res => res.json()).then(datas => {
     });
 
     kategories.forEach((kategori, i) => {
-        const el = document.createElement('li');
-        el.dataset.kategori = kategori;
-        el.innerHTML = kategori.toUpperCase();
-        navbarKategoriList.appendChild(el)
+        const el = `<li data-kategori="${kategori}">${kategori.toUpperCase()}</li>`;
+        asideUl.innerHTML += el;
+        navbarKategoriList.innerHTML += el;
         if ((kategories.length - 6) < i) {
             const elTopik = document.createElement('li');
             elTopik.dataset.kategori = kategori;
@@ -175,6 +177,16 @@ fetch('data.json').then(res => res.json()).then(datas => {
                 }
             });
             document.querySelector('.modal-container .modal header span.hover').addEventListener('click', () => { modalContainer.style.display = 'none' });
+        }
+    })
+
+    bars.addEventListener('click', () => {
+        if(bars.innerHTML === '<p>X</p>') {
+            aside.style.display = 'none';
+            bars.innerHTML = '<img src="img/list.svg" />'
+        }else {
+            aside.style.display = 'block';
+            bars.innerHTML = '<p>X</p>'
         }
     })
 });
