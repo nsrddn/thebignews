@@ -701,7 +701,7 @@ main nav div p {
     }
 
     .modal-container .modal .other {
-        padding: 0;
+        height: 100vh;
     }
 
     .modal-container .modal .other .card > img {
