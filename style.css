@@ -109,6 +109,9 @@ main .mini-headline {
 
 main header .mini-headline img {
     border-radius: var(--radius);
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
 }
 
 main header .mini-headline .info {
@@ -579,6 +582,7 @@ main nav div p {
 
     main header .mini-headline img {
         width: 100%;
+        height: 200px;
     }
 
     main header .mini-headline .info p {

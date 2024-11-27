@@ -2,6 +2,10 @@ fetch('data.json').then(res => res.json()).then(datas => {
     const berita = datas.berita;
     const kategories = datas.kategories;
 
+    berita.sort(() => Math.random() - 0.5)
+    kategories.sort(() => Math.random() - 0.5)
+
+
     const navbarKategoriList = document.querySelector('nav ul');
     const miniHeadline = document.querySelector('main header .mini-headline');
     const beritaCard = document.querySelector('main .berita-utama .cards .scroll-box .scroll');
