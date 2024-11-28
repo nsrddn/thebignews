@@ -32,16 +32,16 @@ fetch('data.json').then(res => res.json()).then(datas => {
     let translateX = 0;
     carets[0].addEventListener('click', () => {
         if (x != 0) {
-            translateX += 296;
-            beritaCard.style.transform = `translateX(${translateX}px)`;
+            translateX += 18.5;
+            beritaCard.style.transform = `translateX(${translateX}em)`;
             x--;
         }
     });
 
     carets[1].addEventListener('click', () => {
         if (x < berita.slice(1, berita.length / 2).length - 1) {
-            translateX -= 296;
-            beritaCard.style.transform = `translateX(${translateX}px)`;
+            translateX -= 18.5;
+            beritaCard.style.transform = `translateX(${translateX}em)`;
             x++;
         }
     });

@@ -49,7 +49,7 @@ body {
 }
 
 main {
-    width: 70%;
+    width: 60em;
     margin: auto;
     background-color: white;
 }
@@ -248,7 +248,7 @@ main .berita-utama .cards::before {
 }
 
 main .berita-utama .cards .card {
-    min-width: 280px;
+    min-width: 17.5em;
 }
 
 main .berita-utama .cards .card img {
@@ -403,7 +403,7 @@ main footer .info-card .info p {
 
 .modal-container .modal {
     background-color: #ffff;
-    width: 70%;
+    width: 60em;
     margin: auto;
     overflow-y: scroll;
     display: flex;
@@ -490,7 +490,7 @@ main nav div {
 main aside {
     position: fixed;
     background-color: white;
-    right: 0;
+    right: .5rem;
     top: 4rem;
     padding: 1rem;
     color: #444;
@@ -543,6 +543,19 @@ main nav div p {
     main .berita-utama .cards .caret {
         display: none;
     }
+
+    .modal-container .modal {
+        width: 100%;
+        height: 100vh;
+    }
+
+    main nav ul, main nav i {
+        display: none;
+    } 
+
+    main nav div {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -558,7 +571,7 @@ main nav div p {
         width: 70px;
     }
 
-    main nav div {
+    main nav div:nth-child(5) {
         display: block;
     }
 
