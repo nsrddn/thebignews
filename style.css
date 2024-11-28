@@ -556,6 +556,10 @@ main nav div p {
     main nav div {
         display: block;
     }
+
+    .modal-container .modal .other {
+        height: 100vh;
+    }
 }
 
 @media screen and (max-width: 768px) {
