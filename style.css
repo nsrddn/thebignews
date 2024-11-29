@@ -621,6 +621,18 @@ body.dark aside {
     .modal-container .modal .other {
         height: 100vh;
     }
+
+    main nav i:nth-child(4) {
+        display: block;
+        border: none;
+        position: fixed;
+        left: .5rem;
+        border-radius: 10px;
+        top: 6rem;
+        background-color: var(--primary-darkmode);
+        padding-left: 0;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -636,23 +648,16 @@ body.dark aside {
         width: 70px;
     }
 
+    main nav i:nth-child(4) {
+        top: 5rem;
+    }
+
     main nav div {
         display: block;
     }
     
     main nav div>img {
         width: 80%;
-    }
-
-    main nav i:nth-child(4) {
-        display: block;
-        border: none;
-        position: fixed;
-        left: .5rem;
-        border-radius: 10px;
-        top: 5rem;
-        background-color: var(--primary-darkmode);
-        padding-left: 0;
     }
 
     main nav ul,
