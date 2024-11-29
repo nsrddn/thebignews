@@ -16,6 +16,23 @@ fetch('data.json').then(res => res.json()).then(datas => {
     const aside = document.querySelector('main aside');
     const bars = document.querySelector('main nav div');
     const asideUl = document.querySelector('main aside ul');
+    const darkmode = document.querySelector('main nav i:nth-child(4)');
+
+    darkmode.addEventListener('click', function () {
+        if (document.body.classList.contains('dark')) {
+            document.body.classList.remove('dark');
+            darkmode.classList.replace('bi-brightness-high-fill', 'bi-moon-fill');
+            darkmode.style.color = 'white';
+            darkmode.style.borderLeft = '1px solid rgba(0, 0, 0, 0.1)';
+            darkmode.style.backgroundColor = 'rgb(31, 41, 55)';
+        } else {
+            document.body.classList.add('dark');
+            darkmode.classList.replace('bi-moon-fill', 'bi-brightness-high-fill');
+            darkmode.style.color = 'yellow';
+            darkmode.style.borderLeft = '1px solid gray';
+            darkmode.style.backgroundColor = 'white';
+        }
+    })
 
     miniHeadline.innerHTML = `
         <img src="${berita[0].image}" alt="Error"/>
@@ -185,10 +202,10 @@ fetch('data.json').then(res => res.json()).then(datas => {
     })
 
     bars.addEventListener('click', () => {
-        if(bars.innerHTML === '<p>X</p>') {
+        if (bars.innerHTML === '<p>X</p>') {
             aside.style.display = 'none';
             bars.innerHTML = '<img src="img/list.svg" />'
-        }else {
+        } else {
             aside.style.display = 'block';
             bars.innerHTML = '<p>X</p>'
         }

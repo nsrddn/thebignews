@@ -25,6 +25,7 @@
     --color-1: #EBEBEB;
     --color-2: #CBCBCB;
 
+    --primary-darkmode: rgb(31, 41, 55);
 
     --card-fill: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
@@ -125,6 +126,19 @@ main header .topik-populer {
     flex-direction: column;
     justify-content: start;
     gap: .5rem;
+}
+
+main nav i:nth-child(4) {
+    color: #ffff;
+    cursor: pointer;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    width: 30px;
+    border-radius: 10px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    background-color: var(--primary-darkmode);
 }
 
 main header .topik-populer h4 {
@@ -531,6 +545,53 @@ main nav div p {
     font-size: 1.3rem;
 }
 
+/* darkmode */
+body.dark {
+    background-color: rgb(55, 65, 81);
+}
+
+body.dark main nav {
+    background-color: var(--primary-darkmode);
+    color: gray;
+    box-shadow: 0 12px 12px rgba(255, 255, 255, 0.05);
+}
+
+body.dark main nav ul {
+    color: gray;
+}
+
+body.dark main {
+    background-color: var(--primary-darkmode);
+    color: gray;
+}
+
+body.dark footer .icons, body.dark footer p, body.dark main header .topik-populer ul, body.dark main header .topik-populer h4, body.dark main header .jadwal h4, body.dark main header .jadwal table {
+    color: gray;
+}
+
+body.dark .berita-utama .cards .caret i {
+    box-shadow: 0 12px 12px rgba(255, 255, 255, 0.1);
+    background-color: var(--primary-darkmode);
+
+}
+
+body.dark .other .card p > span {
+    color: gray;
+}
+
+body.dark .modal-container .modal {
+    background-color: var(--primary-darkmode);
+}
+
+body.dark .modal-container .modal .info, body.dark .modal-container .modal p, body.dark .modal-container .modal header p, body.dark .modal-container .modal header > span, body.dark .modal-container .modal h2 {
+    color: gray;
+}
+
+body.dark aside {
+    background-color: var(--primary-darkmode);
+    color: gray;
+}
+
 @media screen and (max-width: 1224px) {
     main {
         width: 100%;
@@ -575,16 +636,27 @@ main nav div p {
         width: 70px;
     }
 
-    main nav div:nth-child(5) {
+    main nav div {
         display: block;
     }
-
+    
     main nav div>img {
         width: 80%;
     }
 
+    main nav i:nth-child(4) {
+        display: block;
+        border: none;
+        position: fixed;
+        left: .5rem;
+        border-radius: 10px;
+        top: 5rem;
+        background-color: var(--primary-darkmode);
+        padding-left: 0;
+    }
+
     main nav ul,
-    main nav i {
+    main nav i:nth-child(3) {
         display: none;
     }
 
@@ -604,7 +676,6 @@ main nav div p {
 
     main header .mini-headline .info p {
         font-size: .7rem;
-        color: #333;
     }
 
     main header .mini-headline .info h2 {
@@ -642,7 +713,6 @@ main nav div p {
     main .berita-utama .scroll-box .scroll .info {
         width: 100%;
         font-size: .7rem;
-        color: #333;
     }
 
     main .berita-utama .scroll-box .scroll img {
