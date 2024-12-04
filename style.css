@@ -26,6 +26,7 @@
     --color-2: #CBCBCB;
 
     --primary-darkmode: rgb(31, 41, 55);
+    --darkmode-text: #d2c7d3;
 
     --card-fill: linear-gradient(transparent, rgba(0, 0, 0, 0.05));
 }
@@ -399,11 +400,6 @@ main footer .info-card .info p {
     text-align: start;
 }
 
-.hover:hover {
-    color: var(--primary);
-    cursor: pointer;
-}
-
 .modal-container {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
@@ -494,6 +490,7 @@ main footer .info-card .info p {
     color: #444;
     height: 50px;
     font-size: var(--size-6);
+    background-color: var(--darkmode-text);
     padding: 0 1rem;
     outline: none;
 }
@@ -553,21 +550,21 @@ body.dark {
 
 body.dark main nav {
     background-color: var(--primary-darkmode);
-    color: gray;
+    color: var(--darkmode-text);
     box-shadow: 0 12px 12px rgba(255, 255, 255, 0.05);
 }
 
 body.dark main nav ul {
-    color: gray;
+    color: var(--darkmode-text);
 }
 
 body.dark main {
     background-color: var(--primary-darkmode);
-    color: gray;
+    color: var(--darkmode-text);
 }
 
 body.dark footer .icons, body.dark footer p, body.dark main header .topik-populer ul, body.dark main header .topik-populer h4, body.dark main header .jadwal h4, body.dark main header .jadwal table {
-    color: gray;
+    color: var(--darkmode-text);
 }
 
 body.dark .berita-utama .cards .caret i {
@@ -577,7 +574,7 @@ body.dark .berita-utama .cards .caret i {
 }
 
 body.dark .other .card p > span {
-    color: gray;
+    color: var(--darkmode-text);
 }
 
 body.dark .modal-container .modal {
@@ -585,12 +582,17 @@ body.dark .modal-container .modal {
 }
 
 body.dark .modal-container .modal .info, body.dark .modal-container .modal p, body.dark .modal-container .modal header p, body.dark .modal-container .modal header > span, body.dark .modal-container .modal h2 {
-    color: gray;
+    color: var(--darkmode-text);
 }
 
 body.dark aside {
     background-color: var(--primary-darkmode);
-    color: gray;
+    color: var(--darkmode-text);
+}
+
+.hover:hover {
+    color: var(--primary) !important;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1224px) {
