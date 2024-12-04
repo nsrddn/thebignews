@@ -17,20 +17,28 @@ fetch('data.json').then(res => res.json()).then(datas => {
     const bars = document.querySelector('main nav div');
     const asideUl = document.querySelector('main aside ul');
     const darkmode = document.querySelector('main nav i:nth-child(4)');
+    const mode = localStorage.getItem('mode') || "light";
+
+    if (mode == 'dark') {
+        document.body.classList.add('dark');
+        darkmode.classList.replace('bi-moon-fill', 'bi-brightness-high-fill');
+        darkmode.style.borderLeft = '1px solid gray';
+        darkmode.style.backgroundColor = 'white';
+    }
 
     darkmode.addEventListener('click', function () {
         if (document.body.classList.contains('dark')) {
             document.body.classList.remove('dark');
             darkmode.classList.replace('bi-brightness-high-fill', 'bi-moon-fill');
-            darkmode.style.color = 'white';
             darkmode.style.borderLeft = '1px solid rgba(0, 0, 0, 0.1)';
             darkmode.style.backgroundColor = 'rgb(31, 41, 55)';
+            localStorage.setItem('mode', 'light');
         } else {
             document.body.classList.add('dark');
             darkmode.classList.replace('bi-moon-fill', 'bi-brightness-high-fill');
-            darkmode.style.color = 'yellow';
             darkmode.style.borderLeft = '1px solid gray';
             darkmode.style.backgroundColor = 'white';
+            localStorage.setItem('mode', 'dark');
         }
     })
 
