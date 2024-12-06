@@ -134,8 +134,14 @@ fetch('data.json').then(res => res.json()).then(datas => {
                     <p>${data.terbit}</p>
                 </div>
             </div>
-            <img src="${data.image}"
-                alt="Error">
+${Object.hasOwn(data, "video") ? `<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+  <iframe src="${data.video}"
+    style="width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden; border:none;"
+    allowfullscreen
+    title="Dailymotion Video Player"
+    allow="web-share">
+  </iframe>
+</div>` : `<img src="${data.image}" width="200" alt="Error">`}            
             <p>${data.content}</p>
         </div>`;
             modalContainer.innerHTML = el;
