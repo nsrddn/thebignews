@@ -481,6 +481,7 @@ main footer .info-card .info p {
 .modal-container .modal img {
     border-radius: 20px;
     height: 400px;
+    width: 100%;
     object-fit: cover;
     object-position: center;
 }
