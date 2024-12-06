@@ -6,7 +6,7 @@ fetch('data.json').then(res => res.json()).then(datas => {
     kategories.sort(() => Math.random() - 0.5)
 
 
-    const navbarKategoriList = document.querySelector('nav ul');
+    const navbarKategoriList = document.querySelector('nav #nav ul');
     const miniHeadline = document.querySelector('main header .mini-headline');
     const beritaCard = document.querySelector('main .berita-utama .cards .scroll-box .scroll');
     const carets = document.querySelectorAll('main .berita-utama .cards .caret i');
@@ -14,9 +14,10 @@ fetch('data.json').then(res => res.json()).then(datas => {
     const other = document.querySelector('main .other');
     const modalContainer = document.querySelector('.modal-container');
     const aside = document.querySelector('main aside');
-    const bars = document.querySelector('main nav div');
+    const bars = document.querySelector('main nav #nav div');
     const asideUl = document.querySelector('main aside ul');
-    const darkmode = document.querySelector('main nav i:nth-child(4)');
+    const darkmode = document.querySelector('main nav #nav i:nth-child(4)');
+    const headlineSliding = document.querySelector('main nav #headline');
     const mode = localStorage.getItem('mode') || "light";
 
     if (mode == 'dark') {
@@ -52,6 +53,13 @@ fetch('data.json').then(res => res.json()).then(datas => {
             <p>${berita[0].excerpt.length <= 201 ? berita[0].excerpt : berita[0].excerpt.substring(0, 196) + "....."}</p>
         </div>
     `;
+
+    const slidingContent = berita[Math.round(Math.random() * 100)];
+    const headlineSlidingContent = `
+        <span>HEADLINE HARI INI</span>
+        <p data-id="${slidingContent.id}"><span data-id="${slidingContent.id}">${slidingContent.judul}</span></p>
+    `;
+    headlineSliding.innerHTML = headlineSlidingContent;
 
     let x = 0;
     let translateX = 0;

@@ -59,18 +59,23 @@ main {
 /* navbar */
 nav {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    z-index: 10;
+    position: sticky;
+    top: 0;
+}
+
+nav > div#nav {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--bg-navbar);
-    box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
     padding: 1.3rem 2rem;
-    position: sticky;
-    top: 0;
     width: 100%;
-    z-index: 10;
 }
 
-nav ul {
+nav > div#nav ul {
     display: flex;
     align-items: center;
     list-style-type: none;
@@ -82,16 +87,66 @@ nav ul {
     overflow-x: scroll;
 }
 
-nav ul li {
+nav > div#nav ul li {
     min-width: max-content;
 }
 
-nav ul li:hover,
-nav i:hover,
+nav > div#nav ul li:hover,
+nav > div#nav i:hover,
 aside ul li:hover,
 aside span:hover {
     cursor: pointer;
     opacity: .5;
+}
+
+/* headline */
+main nav #headline {
+    cursor: pointer;
+    width: 100%;
+    height: 20px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.3rem;
+    background-color: var(--primary);
+    color: #ffff;
+}
+
+main nav #headline > span {
+    background-color: #ffff;
+    color: var(--primary);
+    font-weight: bold;
+    padding: .2rem .5rem;
+    border-radius: 20px;
+    font-size: .8rem;
+    width: max-content;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+main nav #headline p {
+    width: 85%;
+    position: relative;
+    overflow-x: hidden;
+    height: 20px;
+}
+
+main nav #headline p > span {
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    right: -100%;
+    text-align: center;
+    line-height: 20px;
+    animation: sliding 15s linear infinite;   
+    font-size: .9rem; 
+}
+
+@keyframes sliding {
+    to {
+        right: 100%;
+    }
 }
 
 /* header */
@@ -129,7 +184,7 @@ main header .topik-populer {
     gap: .5rem;
 }
 
-main nav i:nth-child(4) {
+main nav > div i:nth-child(4) {
     color: var(--primary);
     cursor: pointer;
     height: 30px;
@@ -503,7 +558,7 @@ main aside {
     position: fixed;
     background-color: white;
     right: .5rem;
-    top: 4rem;
+    top: 6.5rem;
     padding: 1rem;
     color: #444;
     box-shadow: 0 12px 12px rgba(0, 0, 0, 0.1);
@@ -539,7 +594,7 @@ main aside span {
     text-align: center;
 }
 
-main nav div p {
+main nav #nav div p {
     font-size: 1.3rem;
 }
 
@@ -548,13 +603,13 @@ body.dark {
     background-color: rgb(55, 65, 81);
 }
 
-body.dark main nav {
+body.dark main nav #nav {
     background-color: var(--primary-darkmode);
     color: var(--darkmode-text);
     box-shadow: 0 12px 12px rgba(255, 255, 255, 0.05);
 }
 
-body.dark main nav ul {
+body.dark main nav #nav ul {
     color: var(--darkmode-text);
 }
 
@@ -592,12 +647,16 @@ body.dark aside {
 
 .hover:hover {
     color: var(--primary) !important;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 @media screen and (max-width: 1224px) {
     main {
         width: 100%;
+    }
+
+    main #headline > span {
+        left: 1rem;
     }
 
     main .berita-utama .cards .scroll-box {
@@ -613,11 +672,11 @@ body.dark aside {
         height: 100vh;
     }
 
-    main nav ul, main nav i {
+    main nav #nav ul, main nav #nav i {
         display: none;
     } 
 
-    main nav div {
+    main nav #nav div {
         display: block;
     }
 
@@ -625,13 +684,13 @@ body.dark aside {
         height: 100vh;
     }
 
-    main nav i:nth-child(4) {
+    main nav #nav i:nth-child(4) {
         display: block;
         border: none;
         position: fixed;
         left: .5rem;
         border-radius: 10px;
-        top: 6rem;
+        top: 8rem;
         background-color: var(--primary-darkmode);
         padding-left: 0;
     }
@@ -643,29 +702,37 @@ body.dark aside {
         width: 100%;
     }
 
-    main nav {
+    main nav #nav {
         padding: 5%;
     }
 
-    main nav img {
+    main nav #nav img {
         width: 70px;
     }
 
-    main nav i:nth-child(4) {
-        top: 5rem;
+    main nav #nav i:nth-child(4) {
+        top: 7.5rem;
     }
 
-    main nav div {
+    main nav #nav div {
         display: block;
     }
     
-    main nav div>img {
+    main nav #nav div>img {
         width: 80%;
     }
 
-    main nav ul,
-    main nav i:nth-child(3) {
+    main nav #nav ul,
+    main nav #nav i:nth-child(3) {
         display: none;
+    }
+
+    main nav #headline p > span {
+        font-size: .7rem;
+    }
+    
+    main nav #headline > span {
+        font-size: .5rem;
     }
 
     main header {
