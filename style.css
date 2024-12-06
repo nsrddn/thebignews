@@ -66,7 +66,7 @@ nav {
     top: 0;
 }
 
-nav > div#nav {
+nav #nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,7 +75,7 @@ nav > div#nav {
     width: 100%;
 }
 
-nav > div#nav ul {
+nav #nav ul {
     display: flex;
     align-items: center;
     list-style-type: none;
@@ -87,12 +87,12 @@ nav > div#nav ul {
     overflow-x: scroll;
 }
 
-nav > div#nav ul li {
+nav #nav ul li {
     min-width: max-content;
 }
 
-nav > div#nav ul li:hover,
-nav > div#nav i:hover,
+nav #nav ul li:hover,
+nav #nav i:hover,
 aside ul li:hover,
 aside span:hover {
     cursor: pointer;
