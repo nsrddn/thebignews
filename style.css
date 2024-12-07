@@ -111,6 +111,7 @@ main nav #headline {
     padding: 1.3rem;
     background-color: var(--primary);
     color: #ffff;
+    border-radius: 0 0 15px 15px;
 }
 
 main nav #headline > span {
@@ -136,7 +137,7 @@ main nav #headline p > span {
     display: inline-block;
     width: 100%;
     position: absolute;
-    right: -100%;
+    right: -200%;
     text-align: center;
     line-height: 20px;
     animation: sliding 15s linear infinite;   
@@ -146,7 +147,7 @@ main nav #headline p > span {
 
 @keyframes sliding {
     to {
-        right: 100%;
+        right: 200%;
     }
 }
 
