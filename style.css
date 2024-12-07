@@ -141,6 +141,7 @@ main nav #headline p > span {
     line-height: 20px;
     animation: sliding 15s linear infinite;   
     font-size: .9rem; 
+    white-space: nowrap;
 }
 
 @keyframes sliding {
