@@ -63,7 +63,7 @@ el=`<div class="modal">
         </div>`;modalContainer.innerHTML=el;modalContainer.style.display='block';document.querySelector('.modal-container .modal header span.hover').addEventListener('click',()=>{modalContainer.style.display='none'})}else if(e.target.dataset.search){el=`<div class="modal">
             <header>
                 <div class="search">
-                    <input type="search" placeholder="Judul berita yang anda inginkan?" />
+                    <input type="search" autofocus placeholder="Judul berita yang anda inginkan?" />
                 </div>
                 <span class="hover">X</span>
             </header>
