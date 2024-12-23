@@ -82,5 +82,4 @@ el=`<div class="modal">
                                 <h5 data-id="${data.id}" class="hover">${data.judul}</h5>
                                 <p>${data.excerpt.length <= 154 ? data.excerpt : data.excerpt.substring(0, 149) + "....."}</p>
                             </div>
-                        </div>`})}else{modalOther.innerHTML='<p>Not Found</p>'}});document.querySelector('.modal-container .modal header span.hover').addEventListener('click',()=>{modalContainer.style.display='none'})}})
-bars.addEventListener('click',()=>{if(bars.innerHTML==='<p>X</p>'){aside.style.display='none';bars.innerHTML='<img src="img/list.svg" />'}else{aside.style.display='block';bars.innerHTML='<p>X</p>'}})})
+                        </div>`})}else{modalOther.innerHTML='<p>Not Found</p>'}});document.querySelector('.modal-container .modal header span.hover').addEventListener('click',()=>{modalContainer.style.display='none'})}});bars.addEventListener('click',()=>{if(bars.innerHTML==='<p>X</p>'){aside.style.display='none';bars.innerHTML='<img src="img/list.svg" />'}else{aside.style.display='block';bars.innerHTML='<p>X</p>'}})})
